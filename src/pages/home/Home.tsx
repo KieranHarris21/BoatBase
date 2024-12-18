@@ -1,5 +1,4 @@
 import { IonContent, IonHeader, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { ExploreContainer } from '../../components';
 import './Home.css';
 
 export const Home: React.FC = () => {
@@ -7,7 +6,7 @@ export const Home: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle className='main-title'>Boating thing 1</IonTitle>
+          <IonTitle className='main-title'>Home</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

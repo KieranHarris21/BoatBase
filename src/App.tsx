@@ -10,8 +10,8 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import { Home, Tab2, Tab3 } from './pages';
+import { boatSharp, cogSharp, homeSharp, storefrontSharp } from 'ionicons/icons';
+import { Home, Garage, Settings, Marketplace } from './pages';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -50,31 +50,38 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/Home">
+          <Route exact path="/home">
             <Home />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/garage">
+            <Garage />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route path="/marketplace">
+            <Marketplace />
+          </Route>
+          <Route path="/settings">
+            <Settings />
           </Route>
           <Route exact path="/">
-            <Redirect to="/Home" />
+            <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="Home" href="/Home">
-            <IonIcon aria-hidden="true" icon={triangle} />
+          <IonTabButton tab="Home" href="/home">
+            <IonIcon aria-hidden="true" icon={homeSharp} />
             <IonLabel>Home</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <IonTabButton tab="Garage" href="/garage">
+            <IonIcon aria-hidden="true" icon={boatSharp} />
+            <IonLabel>My Garage</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="Marketplace" href="/marketplace">
+            <IonIcon aria-hidden="true" icon={storefrontSharp} />
+            <IonLabel>Marketplace</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="Settings" href="/settings">
+            <IonIcon aria-hidden="true" icon={cogSharp} />
+            <IonLabel>Settings</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

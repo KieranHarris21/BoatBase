@@ -1,8 +1,8 @@
 import { IonButton, IonCard, IonContent, IonHeader, IonInfiniteScroll, IonItem, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './Garage.css';
+import './Marketplace.css';
 import { useState } from 'react';
 
-export const Garage: React.FC = () => {
+export const Marketplace: React.FC = () => {
 
   const [data, setData] = useState<any[]>([]);
 
@@ -25,7 +25,7 @@ export const Garage: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>My Garage</IonTitle>
+          <IonTitle>Marketplace</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
