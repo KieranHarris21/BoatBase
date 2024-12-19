@@ -1,0 +1,23 @@
+.add-vessel {
+    position: absolute;
+    width: 100%;
+    padding-inline: 4rem;
+    bottom: 4rem;
+}
+
+.details-container {
+    padding-inline: 2rem;
+    padding-bottom: 2rem;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: row;
+    grid-column: 2;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.checkbox-container-label {
+    margin-bottom: 0.5rem;
+}
