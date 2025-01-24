@@ -23,7 +23,7 @@ export const Login: React.FC = () => {
           <IonInput type="email" label="Email" labelPlacement="stacked" placeholder="email address"></IonInput>
           <div className="password-container">
             <IonInput type="password" label="Password" labelPlacement="stacked" placeholder="password"></IonInput>
-            <div className="forgot-password" onClick={forgotPassword}>Forgot Password</div>
+            <a className="forgot-password" href='/forgot-password' onClick={forgotPassword}>Forgot Password</a>
           </div>
           <IonCheckbox className="remember-me" justify="space-between"><span>Remember me?</span></IonCheckbox>
           <div className="signup-text">
