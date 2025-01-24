@@ -1,11 +1,7 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCheckbox, IonContent, IonInput } from "@ionic/react";
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCheckbox, IonContent, IonInput } from "@ionic/react";
 import "./Auth.css";
 
 export const Signup: React.FC = () => {
-
-  const forgotPassword = () => {
-    console.log("forgot password");
-  }
 
   return (
     <div className="auth-container">
@@ -19,6 +15,10 @@ export const Signup: React.FC = () => {
           <IonInput type="email" label="Email" labelPlacement="stacked" placeholder="email address"></IonInput>
           <div className="password-container">
             <IonInput type="password" label="Password" labelPlacement="stacked" placeholder="password"></IonInput>
+          </div>
+          <div className="auth-buttons">
+            <IonButton fill='outline' href='/login'>cancel</IonButton>
+            <IonButton color='primary'>Sign Up</IonButton>
           </div>
         </IonCardContent>
       </IonCard>

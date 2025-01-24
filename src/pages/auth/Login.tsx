@@ -30,8 +30,8 @@ export const Login: React.FC = () => {
             <span>Don't have an account? <a href="/signup">Sign Up</a></span>
           </div>
           <div className="auth-buttons">
-            <IonButton fill='outline' href='/'>cancel</IonButton>
-            <IonButton color='primary'>Login</IonButton>
+            <IonButton fill='outline'>cancel</IonButton>
+            <IonButton color='primary' href='/'>Login</IonButton>
           </div>
         </IonCardContent>
       </IonCard>
