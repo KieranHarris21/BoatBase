@@ -1,5 +1,5 @@
 import { IonIcon, IonLabel, IonTabBar, IonTabButton, IonTabs } from "@ionic/react"
-import { boatSharp, cogSharp, homeSharp, storefrontSharp } from "ionicons/icons";
+import { boatSharp, cogSharp, homeSharp, storefrontSharp, documentSharp } from "ionicons/icons";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
