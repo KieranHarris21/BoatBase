@@ -1,10 +1,11 @@
 import { IonIcon, IonLabel, IonRouterOutlet, IonTab, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Home, Garage, Settings, Marketplace, Login, Signup } from '../pages';
+import { Home, Garage, Settings, Marketplace, LoginPage, Signup, Login, ForgotPassword } from '../pages';
 import { Layout } from '../components';
 import { Redirect, Route } from 'react-router';
 import { boatSharp, cogSharp, homeSharp, storefrontSharp } from 'ionicons/icons';
 import { useState } from 'react';
+import { DataTable } from '../pages/dataTable/DataTable';
 
 export const Routes: React.FC = () => {
   return (
@@ -26,11 +27,17 @@ export const Routes: React.FC = () => {
           <Route exact path="/login">
             <Login />
           </Route>
+          <Route exact path="/forgot-password">
+            <ForgotPassword />
+          </Route>
           <Route exact path="/signup">
             <Signup />
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
+          </Route>
+          <Route exact path="/tables">
+            <DataTable />
           </Route>
         </IonRouterOutlet>
         <Layout />
