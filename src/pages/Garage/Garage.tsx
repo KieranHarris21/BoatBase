@@ -17,7 +17,6 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react';
-import './Garage.css';
 import { useRef, useState } from 'react';
 // import { useLocation } from 'react-router-dom';
 

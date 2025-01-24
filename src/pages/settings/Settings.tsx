@@ -1,6 +1,5 @@
 import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { ExploreContainer } from '../../components';
-import './Settings.css';
 
 export const Settings: React.FC = () => {
   return (
