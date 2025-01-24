@@ -1,6 +1,5 @@
 import { IonContent, IonHeader, IonLabel, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { Card } from '../../components/card/Card';
-// import './Home.css';
 
 export const Home: React.FC = () => {
   return (
@@ -11,7 +10,7 @@ export const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <div className='mt-4 mx-auto w-11/12 h-20 rounded-md bg-blue-400'> second div with tailwindcss </div>
+        <div className='mx-auto mt-4 h-20 w-11/12 rounded-md bg-blue-400'> second div with tailwindcss </div>
         <Card
           header='Card Header'
           body='Card Body'

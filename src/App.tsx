@@ -1,21 +1,8 @@
-import { Redirect, Route } from 'react-router-dom';
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-  setupIonicReact
-} from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import { boatSharp, cogSharp, homeSharp, storefrontSharp } from 'ionicons/icons';
-import { Home, Garage, Settings, Marketplace, Login, Signup } from './pages';
-import { useState } from 'react';
+import { IonApp, setupIonicReact } from '@ionic/react';
+import { Routes } from './routes/Routes';
 
 /* Tailwind CSS */
-import './output.css';
+import './theme/output.css';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -46,7 +33,6 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { Routes } from './routes/Routes';
 
 setupIonicReact();
 

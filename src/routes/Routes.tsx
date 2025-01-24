@@ -1,6 +1,6 @@
 import { IonIcon, IonLabel, IonRouterOutlet, IonTab, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Home, Garage, Settings, Marketplace, LoginPage, Signup, Login, ForgotPassword } from '../pages';
+import { Home, Garage, Settings, MarketplaceHome, LoginPage, Signup, Login, ForgotPassword, MarketplaceItem } from '../pages';
 import { Layout } from '../components';
 import { Redirect, Route } from 'react-router';
 import { boatSharp, cogSharp, homeSharp, storefrontSharp } from 'ionicons/icons';
@@ -19,7 +19,10 @@ export const Routes: React.FC = () => {
             <Garage />
           </Route>
           <Route exact path="/marketplace">
-            <Marketplace />
+            <MarketplaceHome />
+          </Route>
+          <Route exact path="/marketplace/item/:id">
+            <MarketplaceItem />
           </Route>
           <Route exact path="/settings">
             <Settings />
