@@ -1,9 +1,6 @@
 import { IonApp, setupIonicReact } from '@ionic/react';
 import { Routes } from './routes/Routes';
 
-/* Tailwind CSS */
-import './theme/output.css';
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
