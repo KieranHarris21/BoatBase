@@ -8,8 +8,13 @@ export const Layout: React.FC = () => {
   const [authVisible, setAuthVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    if (location.pathname === '/login' || location.pathname === '/signup') {
+    if (location.pathname === '/login'
+      || location.pathname === '/signup'
+      || location.pathname === '/welcome'
+    ) {
       setAuthVisible(true);
+    } else {
+      setAuthVisible(false);
     }
   }, [location]);
 

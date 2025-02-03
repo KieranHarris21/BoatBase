@@ -1,18 +1,25 @@
-import { IonIcon, IonLabel, IonRouterOutlet, IonTab, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
+import { IonRouterOutlet, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Home, Garage, Settings, MarketplaceHome, LoginPage, Signup, Login, ForgotPassword, MarketplaceItem } from '../pages';
+import { Home, Garage, Settings, MarketplaceHome, Signup, Login, ForgotPassword, MarketplaceItem } from '../pages';
 import { Layout } from '../components';
 import { Redirect, Route } from 'react-router';
-import { boatSharp, cogSharp, homeSharp, storefrontSharp } from 'ionicons/icons';
-import { useState } from 'react';
 import { DataTable } from '../pages/dataTable/DataTable';
+import { Welcome } from '../pages/welcome/Welcome';
+// import { Protected } from './Protected';
 
 export const Routes: React.FC = () => {
+
+  // TODO: create a way to register device back button click and navigate to previous page
+
   return (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          <Route exact path="/welcome">
+            <Welcome />
+          </Route>
           <Route exact path="/home">
+            {/* <Protected><Home /></Protected> */}
             <Home />
           </Route>
           <Route exact path="/garage">
