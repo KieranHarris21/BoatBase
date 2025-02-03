@@ -1,17 +1,9 @@
 import { IonIcon } from '@ionic/react';
 import { chevronBackOutline, chevronForwardOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
+import { IImageScrollViewProps } from '../../interfaces/interfaces';
 
-interface ImageScrollViewProps {
-  images: IImage[];
-}
-
-interface IImage {
-  id: number;
-  imageUrl: string;
-}
-
-export const ImageScrollView: React.FC<ImageScrollViewProps> = ({ images }) => {
+export const ImageScrollView: React.FC<IImageScrollViewProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -36,7 +28,7 @@ export const ImageScrollView: React.FC<ImageScrollViewProps> = ({ images }) => {
         {images.map((image, index) => (
           <img
             key={image.id}
-            src={image.imageUrl}
+            src={image.image_url}
             alt={`Image ${index}`}
             className={`scroll-image mx-auto transition-transform duration-300 ease-in-out ${index === currentIndex ? 'transform translate-x-0' : 'transform -translate-x-full'
               }`}
