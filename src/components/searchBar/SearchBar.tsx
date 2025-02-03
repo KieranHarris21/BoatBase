@@ -1,18 +1,9 @@
 import { IonIcon } from '@ionic/react';
 import { searchSharp } from 'ionicons/icons';
 import React, { useState } from 'react';
+import { ISearchBarProps } from '../../interfaces/interfaces';
 
-interface DataItem {
-  title: string;
-  [key: string]: any;
-}
-
-interface SearchBarProps {
-  data: DataItem[];
-  onFilter: (filteredData: DataItem[]) => void;
-}
-
-export const SearchBar: React.FC<SearchBarProps> = ({ data, onFilter }) => {
+export const SearchBar: React.FC<ISearchBarProps> = ({ data, onFilter }) => {
   const [query, setQuery] = useState('');
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

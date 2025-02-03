@@ -1,18 +1,7 @@
 import { useHistory } from "react-router-dom";
+import { IMarketplaceItemCardProps } from "../../interfaces/interfaces";
 
-interface MarketplaceItemCardProps {
-  item: {
-    id: number;
-    currency: string;
-    price: number;
-    imageUrl: string;
-    title: string;
-    city: string;
-    state: string;
-  };
-}
-
-export const MarketplaceItemCard: React.FC<MarketplaceItemCardProps> = ({ item }) => {
+export const MarketplaceItemCard: React.FC<IMarketplaceItemCardProps> = ({ item }) => {
   const history = useHistory();
 
   const getCurrencySymbol = (locale: string, currency: string) => (0).toLocaleString(locale, { style: 'currency', currency, minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(/\d/g, '').trim()
@@ -33,7 +22,7 @@ export const MarketplaceItemCard: React.FC<MarketplaceItemCardProps> = ({ item }
       <div>
         <div className='aspect-square w-full rounded-lg text-gray-200'>
           <img
-            src={item.imageUrl}
+            src={item.image_url}
             className='h-full w-full rounded-lg object-cover'
           />
         </div>

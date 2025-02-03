@@ -1,53 +1,35 @@
 import { IonContent, IonIcon, IonInfiniteScroll, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { closeSharp } from 'ionicons/icons';
-import React from 'react';
+import { FC, Fragment } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { ImageScrollView } from '../../components';
+import { IMarketplaceItemProps } from '../../interfaces/interfaces';
 
-interface MarketplaceItemProps {
-  id: number;
-  price: number;
-  images: IImage[];
-  title: string;
-  contact_details: string;
-  contact_name: string;
-  description: string;
-  city: string;
-  state: string;
-  created_at: string;
-}
-
-interface IImage {
-  id: number;
-  imageUrl: string;
-}
-
-const mockData: MarketplaceItemProps[] = [
+const mockData: IMarketplaceItemProps[] = [
   {
     id: 1,
     price: 1200000,
     images: [
-      { id: 1, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144815.jpg" },
-      { id: 2, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144806.jpg" },
-      { id: 3, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145326.jpg" },
-      { id: 4, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145235.jpg" },
-      { id: 5, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144744.jpg" },
-      { id: 6, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144855.jpg" },
-      { id: 7, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145127.jpg" },
-      { id: 8, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145117.jpg" },
-      { id: 9, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145115.jpg" },
-      { id: 10, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145106.jpg" },
-      { id: 11, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145102.jpg" },
-      { id: 12, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145026.jpg" },
-      { id: 13, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144949.jpg" },
-      { id: 14, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144946.jpg" },
-      { id: 15, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144924.jpg" },
-      { id: 16, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144919.jpg" },
-      { id: 17, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144901.jpg" },
-      { id: 18, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144855.jpg" },
-      { id: 19, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144845.jpg" },
-      { id: 20, imageUrl: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144827.jpg" },
-      //Add more images here 
+      { id: 1, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144815.jpg" },
+      { id: 2, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144806.jpg" },
+      { id: 3, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145326.jpg" },
+      { id: 4, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145235.jpg" },
+      { id: 5, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144744.jpg" },
+      { id: 6, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144855.jpg" },
+      { id: 7, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145127.jpg" },
+      { id: 8, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145117.jpg" },
+      { id: 9, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145115.jpg" },
+      { id: 10, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145106.jpg" },
+      { id: 11, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145102.jpg" },
+      { id: 12, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_145026.jpg" },
+      { id: 13, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144949.jpg" },
+      { id: 14, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144946.jpg" },
+      { id: 15, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144924.jpg" },
+      { id: 16, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144919.jpg" },
+      { id: 17, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144901.jpg" },
+      { id: 18, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144855.jpg" },
+      { id: 19, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144845.jpg" },
+      { id: 20, image_url: "https://bayviewboating.co.za/wp-content/uploads/2024/09/IMG_20240903_144827.jpg" },
     ],
     title: "2015 Scarab 215HO",
     contact_details: "082 555 5555",
@@ -57,9 +39,28 @@ const mockData: MarketplaceItemProps[] = [
     state: "Eastern Cape",
     created_at: new Date().toISOString()
   },
+  {
+    id: 2,
+    price: 980000,
+    images: [
+      { id: 1, image_url: "https://bayviewboating.co.za/wp-content/uploads/2023/04/20211130_085157_compress7.jpg" },
+      { id: 2, image_url: "https://bayviewboating.co.za/wp-content/uploads/2023/04/20211130_085211_compress26.jpg" },
+      { id: 3, image_url: "https://bayviewboating.co.za/wp-content/uploads/2023/04/20211130_085241_compress39.jpg" },
+      { id: 4, image_url: "https://bayviewboating.co.za/wp-content/uploads/2023/04/20211130_085306_compress59.jpg" },
+      { id: 5, image_url: "https://bayviewboating.co.za/wp-content/uploads/2023/04/20211130_085319_compress68.jpg" },
+      { id: 6, image_url: "https://bayviewboating.co.za/wp-content/uploads/2023/04/20211130_085329_compress75.jpg" },
+    ],
+    title: "Sead-Doo RXT 215",
+    contact_details: "082 555 5555",
+    contact_name: "John Doe",
+    description: "2006 Sea-Doo RXT 215hp Supercharged intercooled<br>Rotax 4-Tec Engine<br>Sea-Doo Direct drive forward/neutral/reverse<br>Closed loop cooling system<br>Deckpads<br>Comfortable room for three<br>Digitally encoded key<br>Watertight storage<br>Comfortable room for three<br>Galvanized trailer",
+    city: "St Francis Bay",
+    state: "Eastern Cape",
+    created_at: new Date().toISOString()
+  },
 ];
 
-export const MarketplaceItem: React.FC = () => {
+export const MarketplaceItem: FC = () => {
   const { id } = useParams<{ id: string }>();
   const item = mockData.find((item) => item.id == parseInt(id));
   const history = useHistory();
@@ -72,6 +73,11 @@ export const MarketplaceItem: React.FC = () => {
             <IonTitle>
               <div className='flex items-center justify-between' >
                 <IonIcon onClick={history.goBack} size='large' icon={closeSharp} />
+                <div className='-ml-10 w-full'>
+                  <div className='mx-auto w-fit'>
+                    {item?.title}
+                  </div>
+                </div>
               </div>
             </IonTitle>
           </IonToolbar>
@@ -95,9 +101,14 @@ export const MarketplaceItem: React.FC = () => {
                   <div className='mb-2 text-lg font-semibold'>
                     {"Seller's Description"}
                   </div>
-                  <div>
-                    {item.description}
-                  </div>
+                  <p className=''>
+                    {item.description.split('<br>').map((line, index) => (
+                      <Fragment key={index}>
+                        {line}
+                        <br />
+                      </Fragment>
+                    ))}
+                  </p>
                 </div>
               </div>
             </div>
