@@ -1,9 +1,9 @@
-import { IonContent, IonIcon, IonInfiniteScroll, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { closeSharp } from 'ionicons/icons';
+import { IonContent, IonInfiniteScroll, IonPage } from '@ionic/react';
 import { FC, Fragment } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ImageScrollView } from '../../components';
 import { IMarketplaceItemProps } from '../../interfaces/interfaces';
+import { PageHeader } from '../../components/pageHeader/PageHeader';
 
 const mockData: IMarketplaceItemProps[] = [
   {
@@ -41,7 +41,7 @@ const mockData: IMarketplaceItemProps[] = [
   },
   {
     id: 2,
-    price: 980000,
+    price: 98000,
     images: [
       { id: 1, image_url: "https://bayviewboating.co.za/wp-content/uploads/2023/04/20211130_085157_compress7.jpg" },
       { id: 2, image_url: "https://bayviewboating.co.za/wp-content/uploads/2023/04/20211130_085211_compress26.jpg" },
@@ -63,31 +63,20 @@ const mockData: IMarketplaceItemProps[] = [
 export const MarketplaceItem: FC = () => {
   const { id } = useParams<{ id: string }>();
   const item = mockData.find((item) => item.id == parseInt(id));
-  const history = useHistory();
 
   return (
     <IonPage>
+      {!item ? <PageHeader title="item removed" back={true} /> :
+        <PageHeader title={item.title} back={true} />
+      }
       <IonContent fullscreen>
         <IonInfiniteScroll>
-          <IonToolbar>
-            <IonTitle>
-              <div className='flex items-center justify-between' >
-                <IonIcon onClick={history.goBack} size='large' icon={closeSharp} />
-                <div className='-ml-10 w-full'>
-                  <div className='mx-auto w-fit'>
-                    {item?.title}
-                  </div>
-                </div>
-              </div>
-            </IonTitle>
-          </IonToolbar>
           {!item ? <div className='-mt-20 h-[100dvh] w-full content-center justify-center text-center'>Listing Removed</div> :
             <div className='w-full pb-4'>
               <ImageScrollView images={item.images} />
               {/* Header Section */}
               <div className='mx-auto mt-4 w-11/12'>
-                <div className='text-xl font-bold'>{item.title}</div>
-                <div className='font-bold'>
+                <div className='font-semibold text-xl'>
                   {`ZAR${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
                 </div>
                 <div>{`Contact: ${item.contact_name} - ${item.contact_details}`}</div>
@@ -116,6 +105,5 @@ export const MarketplaceItem: FC = () => {
         </IonInfiniteScroll>
       </IonContent>
     </IonPage>
-
   );
 };
