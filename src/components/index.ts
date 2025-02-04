@@ -1,5 +1,5 @@
-export { ExploreContainer } from './exploreContainer/ExploreContainer';
-export { Layout } from './layout/Layout';
-export { MarketplaceItemCard } from './marketplaceItemCard/MarketplaceItemCard';
-export { ImageScrollView } from './imageScrollView/ImageScrollView';
-export { SearchBar } from './searchBar/SearchBar';
+export * from './exploreContainer/ExploreContainer';
+export * from './bottomNav/BottomNav';
+export * from './marketplaceItemCard/MarketplaceItemCard';
+export * from './imageScrollView/ImageScrollView';
+export * from './searchBar/SearchBar';

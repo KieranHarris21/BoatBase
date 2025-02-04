@@ -1,7 +1,7 @@
 import { IonRouterOutlet, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Home, Garage, Settings, MarketplaceHome, Signup, Login, ForgotPassword, MarketplaceItem } from '../pages';
-import { Layout } from '../components';
+import { BottomNav } from '../components';
 import { Redirect, Route } from 'react-router';
 import { DataTable } from '../pages/dataTable/DataTable';
 import { Welcome } from '../pages/welcome/Welcome';
@@ -44,13 +44,13 @@ export const Routes: React.FC = () => {
             <Signup />
           </Route>
           <Route exact path="/">
-            <Redirect to="/home" />
+            <Redirect to="/welcome" />
           </Route>
           <Route exact path="/tables">
             <DataTable />
           </Route>
         </IonRouterOutlet>
-        <Layout />
+        <BottomNav />
       </IonTabs>
     </IonReactRouter>
   )
