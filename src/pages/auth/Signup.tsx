@@ -1,5 +1,4 @@
 import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCheckbox, IonContent, IonInput } from "@ionic/react";
-import "./Auth.css";
 
 export const Signup: React.FC = () => {
 
