@@ -22,6 +22,8 @@ export const ImageScrollView: React.FC<IImageScrollViewProps> = ({ images }) => 
     }
   };
 
+  // TODO: update this to use Swiper.js in future found at: https://swiperjs.com/
+
   return (
     <div className="relative w-full items-center justify-center">
       <div className="mx-auto flex max-h-[768px] max-w-[1024px] overflow-hidden">
