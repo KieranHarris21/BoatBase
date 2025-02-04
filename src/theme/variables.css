@@ -21,3 +21,11 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-secondary-tint: #1a751a;
 
 }
+
+@layer {
+  :root {
+    --color-primary: var(--ion-color-primary);
+    --color-secondary: var(--ion-color-secondary);
+    --color-dark: var(--ion-color-dark);
+  }
+}
