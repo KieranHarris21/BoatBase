@@ -4,7 +4,7 @@ Tech stack:
 React - Ionic - TailwindCSS
 
 The project is just a fun personal project mostly for learning new things and building a project from the ground up by myself to go through the process of setting up an app and architecting a full app from the ground up to gain knowledge and learn how to solve problems by myself. 
-So far the project is just a frontend but will eventually have a Node.js backend with a postgreSQL database for managing data and users/permissions and incorporate various sections of the app that will only be accessible to users with certain permissions.
+So far the project is in the beginning phases where I started with the frontend but will eventually have a Node.js backend with a postgreSQL database for managing data and users/permissions and incorporate various sections of the app that will only be accessible to users with certain permissions.
 
 **How to run the project locally:**
 
