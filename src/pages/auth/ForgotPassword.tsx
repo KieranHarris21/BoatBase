@@ -1,8 +1,8 @@
+import { useIonRouter } from '@ionic/react';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 export const ForgotPassword: React.FC = () => {
-  const history = useHistory();
+  const router = useIonRouter();
   const [email, setEmail] = useState('');
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -10,7 +10,7 @@ export const ForgotPassword: React.FC = () => {
     // Handle forgot password logic here
     console.log('Email:', email);
     // Redirect to login page after successful password reset request
-    history.push('/login');
+    router.push('/login');
   };
 
   return (

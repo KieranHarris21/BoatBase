@@ -1,8 +1,8 @@
-import { useHistory } from "react-router-dom";
 import { IMarketplaceItemCardProps } from "../../interfaces/interfaces";
+import { useIonRouter } from "@ionic/react";
 
 export const MarketplaceItemCard: React.FC<IMarketplaceItemCardProps> = ({ item }) => {
-  const history = useHistory();
+  const router = useIonRouter();
 
   const getCurrencySymbol = (locale: string, currency: string) => (0).toLocaleString(locale, { style: 'currency', currency, minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(/\d/g, '').trim()
 
@@ -17,7 +17,7 @@ export const MarketplaceItemCard: React.FC<IMarketplaceItemCardProps> = ({ item 
   return (
     <div
       className='p-2'
-      onClick={() => history.push(`/marketplace/item/${item.id}`)}
+      onClick={() => router.push(`/marketplace/item/${item.id}`)}
     >
       <div>
         <div className='aspect-square w-full rounded-lg text-gray-200'>

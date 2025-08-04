@@ -1,17 +1,16 @@
-import { IonButton } from "@ionic/react";
+import { IonButton, useIonRouter } from "@ionic/react";
 import { FC } from "react";
-import { useHistory } from "react-router";
 
 export const Welcome: FC = () => {
 
-  const history = useHistory();
+  const router = useIonRouter();
 
   const login = () => {
-    history.push('/login');
+    router.push('/login');
   }
 
   const signup = () => {
-    history.push('/signup')
+    router.push('/signup')
   }
 
   return (

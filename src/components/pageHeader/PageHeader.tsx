@@ -1,9 +1,8 @@
-import { IonHeader, IonIcon, IonTitle, IonToolbar } from "@ionic/react"
+import { IonHeader, IonIcon, IonTitle, IonToolbar, useIonRouter } from "@ionic/react"
 import { FC } from "react"
 import { SearchBar } from "../searchBar/SearchBar"
 import { IPageHeader } from "../../interfaces/interfaces"
 import { arrowBackSharp, menuSharp } from "ionicons/icons"
-import { useHistory } from "react-router"
 
 export const PageHeader = (
   {
@@ -14,7 +13,7 @@ export const PageHeader = (
     back?: boolean
   }) => {
 
-  const history = useHistory();
+  const router = useIonRouter();
 
   return (
     <IonHeader>
@@ -26,7 +25,7 @@ export const PageHeader = (
               <IonIcon
                 className="h-8 w-8 pr-4"
                 icon={arrowBackSharp}
-                onClick={() => history.goBack()}
+                onClick={() => router.goBack()}
               />
             </div>
           }

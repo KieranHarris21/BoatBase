@@ -4,14 +4,14 @@ import {
   IonInfiniteScrollContent,
   IonInput,
   IonInputPasswordToggle,
-  IonPage
+  IonPage,
+  useIonRouter
 } from "@ionic/react";
 import { FC, useEffect, useState } from "react";
-import { useHistory } from "react-router";
 
 export const Login: FC = () => {
 
-  const history = useHistory();
+  const router = useIonRouter();
   //state
   const [disabled, setDisabled] = useState<boolean>(true);
 
@@ -73,7 +73,7 @@ export const Login: FC = () => {
     // });
 
     // if (authResponse == 'Success') {
-    history.push('/home');
+    router.push('/home');
     // } else {
     //   console.log(authResponse);
     // }
@@ -133,7 +133,7 @@ export const Login: FC = () => {
               <div>Forgot password?</div>
               <div
                 className="font-semibold text-primary ml-1"
-                onClick={() => history.push('/reset-password')}
+                onClick={() => router.push('/reset-password')}
               >Click here
               </div>
             </div>
@@ -143,7 +143,7 @@ export const Login: FC = () => {
               </div>
               <div
                 className="font-semibold text-primary ml-1"
-                onClick={() => history.push('/register')}
+                onClick={() => router.push('/register')}
               >Sign up
               </div>
             </div>
